@@ -1,0 +1,4 @@
+*.rpm
+*.log
+.npmrc
+.history
