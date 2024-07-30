@@ -1,13 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image '009543623063.dkr.ecr.eu-west-2.amazonaws.com/jenkins-docker-ci'
-            alwaysPull true
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
-
-
+    agent any
     environment {
         DOCKER_CONFIG = "${env.WORKSPACE}/.docker"
         DOCKER_REGISTRY = '009543623063.dkr.ecr.eu-west-2.amazonaws.com'
@@ -37,9 +29,17 @@ pipeline {
                         sh "aws ecr get-login-password --region eu-west-2 | docker login --username AWS --password-stdin 009543623063.dkr.ecr.eu-west-2.amazonaws.com"
                     }
                 }
+
             }
 
-                    stage('Print PWD') {
+                    stage('Initialise') {
+                        agent {
+                            docker {
+                                image '009543623063.dkr.ecr.eu-west-2.amazonaws.com/jenkins-docker-ci'
+                                alwaysPull true
+                                args '-v /var/run/docker.sock:/var/run/docker.sock'
+                            }
+                        }
                                 steps {
                                     script {
                                         def workspaceDir = sh(script: 'pwd', returnStdout: true).trim()
