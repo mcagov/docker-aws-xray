@@ -1,4 +1,4 @@
-FROM 676563297163.dkr.ecr.eu-west-2.amazonaws.com/amazonlinux:2022
+FROM 009543623063.dkr.ecr.eu-west-2.amazonaws.com/amazonlinux
 
 LABEL maintainer="info@catapult.cx"
 LABEL org.label-schema.description="Base nodejs image"
