@@ -1,15 +1,10 @@
 pipeline {
-    agent {
-        docker {
-            image '676563297163.dkr.ecr.eu-west-2.amazonaws.com/jenkins-docker-ci:amzn'
-            alwaysPull true
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
-
+    agent any
     environment {
-        DOCKER_REGISTRY = '676563297163.dkr.ecr.eu-west-2.amazonaws.com'
-        DOCKER_IMAGE_NAME = "${env.JOB_NAME.split('/')[-2]?.replaceFirst('docker-', '')}"
+        DOCKER_CONFIG = "${env.WORKSPACE}/.docker"
+        DOCKER_REGISTRY = '009543623063.dkr.ecr.eu-west-2.amazonaws.com'
+//         DOCKER_IMAGE_NAME = "${env.JOB_NAME.split('/')[-2]?.replaceFirst('docker-', '')}"
+        DOCKER_IMAGE_NAME="docker-aws-xray-test"
         DOCKER_TAG = "${env.BRANCH_NAME == 'master' ? 'latest' : env.BRANCH_NAME}"
         DOCKER_OPTS = '--pull --compress --no-cache=true --force-rm=true --progress=plain '
         DOCKER_BUILDKIT = '1'
