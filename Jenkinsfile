@@ -8,6 +8,7 @@ pipeline {
         DOCKER_TAG = "${env.BRANCH_NAME == 'master' ? 'latest' : env.BRANCH_NAME}"
         DOCKER_OPTS = '--pull --compress --no-cache=true --force-rm=true --progress=plain '
         DOCKER_BUILDKIT = '1'
+        AWS_CREDENTIALS = credentials('aws-credentials-id')
 //         AWS_ACCESS_KEY_ID="ASIAQEOGYEGLZSGNG5OL"
 //         AWS_SECRET_ACCESS_KEY="pjVV+YCMmWmMaJhb/NKJiXX/yi9YSgJqEQ3DzI8n"
 //         AWS_SESSION_TOKEN="IQoJb3JpZ2luX2VjEKP//////////wEaCWV1LXdlc3QtMiJHMEUCIQDZFpgkINK9WF0WOeT5mwycO4yS1/pCd8PF9X76zoDAhwIgdtEvKpgqJlVcwvj6DOW7lcYDpdtjGoom9QOYYFGqnHEqsgMIjP//////////ARACGgwwMDk1NDM2MjMwNjMiDLH9VuWzxh3cDxW7dSqGA2Pwy3SPJ1fD1WYoxl0PD6SM3HNJ3d0UnfUDbgrPHZhdDuj72KI+oUEbY0WS1iIh/UqgKF4jgJrda4jKQm+LTjw+W9W0sbkWSVkvn2sm+tpC7NXNiiZYxFl7dEr7e158EjGIp7wpG8JrmoTaotbt2Pa1OHOKNowwM90UhLTQswrxAARV3TetQNRA26s4Yc5FRH6ZzHhPbRS/pWLiBh9IRPNglVJ12iC5KfEGKb+jaKNQ0DrmXJKTqCzTchUhjar1QUakUTvupEcp4r1b13vQ+zQtyMaUWHzZu5R/1zHY4CO/4O/ahUumfQRlSYe51BNxhGm0/Z29ofId4NC5hP1QFLdcImPPjTZ37CzZ1yTfJoTqvhLfGHbt5vxlLdYRHbh0LB04OJ6B+qObSmsfe7vKfkMZZCrcqcOl/fZMYLGtLGqa0cOLkImGyqn4RoptiR8vCQje+7+C/rD7q2mmXUpQZWs6MK/6CqmqgDMNfNNKkItvddufx6RZtOQ/8+nscSgEAEZ2hNqopjCx+LK1BjqmAfiLg/OB7xwCV081+AyPLIRkcV8olyq9lTPlek/tOUw3XvNqZoHqt5UIfs/RccHmslSko6dI1hbPRzbbmSw52NyTJONm+hmXxVbJs+pTYLHbEeFC1tc7NM14sa1izdFc6a93ZOidqqBuWRn1rmzF27ZMtvUgJFK4APFzcES8Sqw34Ra3AH1bnzprmaQLbQr35UAqIfdjgA2/kzLUk6+juJNV0Om53go="
