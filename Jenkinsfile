@@ -24,13 +24,6 @@ pipeline {
     }
 
     stages {
-        stage('Example') {
-                steps {
-                    withAWS(credentials: 'aws-credentials-id') {
-                        sh 'aws sts get-caller-identity'
-                    }
-                }
-            }
         stage('Prepare Workspace') {
                 steps {
                     script {
