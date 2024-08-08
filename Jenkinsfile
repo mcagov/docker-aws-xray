@@ -34,16 +34,6 @@ pipeline {
                     }
                 }
             }
-        stage('Prepare Workspace') {
-                steps {
-                    script {
-                        sh "mkdir -p ${env.DOCKER_CONFIG}"
-                        sh " docker login --username AWS --password ${AWS_PASSWORD} 009543623063.dkr.ecr.eu-west-2.amazonaws.com"
-                    }
-                }
-
-            }
-
                     stage('Initialise') {
                         agent {
                             docker {
