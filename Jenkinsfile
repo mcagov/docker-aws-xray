@@ -45,13 +45,7 @@ pipeline {
                                 args '-v /var/run/docker.sock:/var/run/docker.sock'
                             }
                         }
-                                steps {
-                                    script {
-                                        def workspaceDir = sh(script: 'pwd', returnStdout: true).trim()
-                                        echo "Current working directory: ${workspaceDir}"
-                                    }
-                                }
-                            }
+                    }
         stage('build') {
             steps {
                 sh '''
