@@ -7,7 +7,7 @@ pipeline {
         DOCKER_OPTS = '--pull --compress --no-cache=true --force-rm=true --progress=plain '
         DOCKER_BUILDKIT = '1'
         AWS_REGION = 'eu-west-2'
-        BRANCH_NAME = 'develop'
+
         ECR_REPO = '009543623063.dkr.ecr.eu-west-2.amazonaws.com/jenkins-gradle-ci'
         AWS_CREDENTIALS_ID = 'aws-jenkins-service-account-credentials' // ID for AWS credentials in Jenkins
     }
